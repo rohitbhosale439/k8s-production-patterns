@@ -1,0 +1,11 @@
+# Keeps the service available during voluntary disruptions
+# (node drains, cluster upgrades, autoscaler scale-down).
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: web
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: web
